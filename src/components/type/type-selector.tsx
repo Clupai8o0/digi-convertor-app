@@ -21,27 +21,29 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 
 	// Refs
 	const dropdownRef = useRef(null);
+	const dropdownArrowRef = useRef(null);
 
 	// Animation
-	const tl = gsap.timeline();
 	useEffect(() => {
 		let timeout: number | undefined = undefined;
 
-		if (dropdownRef) {
+		if (dropdownRef && dropdownArrowRef) {
 			if (isDropdownOpen) {
 				// @ts-ignore
 				dropdownRef.current.style.display = "flex";
 				gsap.fromTo(
 					dropdownRef.current,
-					{ y: -30, opacity: 0, scale: 0.8 },
-					{ y: 0, opacity: 1, scale: 1, duration: 0.4 }
+					{ y: -30, opacity: 0, scale: 0.9 },
+					{ y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "power1.out" }
 				);
+				gsap.fromTo(dropdownArrowRef.current, { rotate: 0 }, { rotate: -180 });
 			} else {
 				gsap.fromTo(
 					dropdownRef.current,
 					{ y: 0, opacity: 1, scale: 1 },
-					{ y: -30, opacity: 0, scale: 0.8, duration: 0.4 }
+					{ y: -30, opacity: 0, scale: 0.9, duration: 0.4, ease: "power1.out" }
 				);
+				gsap.fromTo(dropdownArrowRef.current, { rotate: -180 }, { rotate: 0 });
 				timeout = setTimeout(() => {
 					// @ts-ignore
 					dropdownRef.current.style.display = "none";
@@ -72,7 +74,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 				<div className={style.dropdownSelected} data-type={type}>
 					<img src={`${getTypeBase(type)}.svg`} alt="Base value" />
 					<span>{type}</span>
-					<img src="arrow-down.svg" alt="Downwards arrow" />
+					<img
+						src="arrow-down.svg"
+						alt="Downwards arrow"
+						ref={dropdownArrowRef}
+					/>
 				</div>
 
 				{/* Options of the dropdown */}
