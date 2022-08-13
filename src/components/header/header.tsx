@@ -17,7 +17,7 @@ const Header = () => {
 				"Easily transition between different digital formats for conversion.",
 			],
 			typeSpeed: 50,
-			startDelay: 400,
+			startDelay: 1000,
 			backSpeed: 50,
 			backDelay: 5000,
 			autoInsertCss: true,
