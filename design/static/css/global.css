@@ -1,0 +1,36 @@
+* {
+  font-family: Lota, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.15;
+  color: var(--color);
+
+  transition: all 0.8s cubic-bezier(0.65,0.05,0.36,1);
+}
+
+body {
+  background: var(--background);
+  margin: var(--margin-border);
+}
+
+/* * Fonts */
+h1 {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  margin-top: var(--margin-spacing-1);
+  margin-bottom: var(--margin-spacing-1);
+  font-size: 32px;
+  font-weight: bold;
+}
+h2, h2 span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* * Base Classes */
+span.underline {
+  text-decoration: underline;
+}
+.hidden {
+  display: none !important;
+}

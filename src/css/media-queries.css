@@ -1,0 +1,91 @@
+/* TODO: need to finish */
+/* Desktop */
+@media all and (min-width: 1280px) {
+	:root {
+		--margin-border: 56px;
+	}
+
+	h1 {
+		font-size: 48px;
+	}
+	h2 {
+		font-size: 32px;
+		font-weight: 600;
+	}
+
+	/* * Btn animations only in desktop */
+	button.reverse:hover {
+		opacity: 0.8;
+	}
+}
+/* Table Landscape */
+@media all and (min-width: 768px) and (max-width: 1280px) {
+	:root {
+		--margin-border: 48px;
+	}
+
+	h1 {
+		font-size: 40px;
+	}
+	h2 {
+		font-size: 24px;
+	}
+}
+
+/* Tablet Portrait */
+@media all and (min-width: 480px) and (max-width: 768px) {
+	:root {
+		--margin-border: 36px;
+		--card-padding: 36px;
+	}
+
+	h1 {
+		font-size: 40px;
+	}
+	h2,
+	span.underline {
+		font-size: 24px;
+	}
+
+	div.card header {
+		margin-bottom: 48px;
+	}
+	div.card header img {
+		width: 48px;
+	}
+
+	div.card section#digit-types {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	div.card section#digit-types div {
+		width: 100%;
+		margin: 0;
+	}
+	section#digit-types div.from {
+		padding-right: 5%;
+	}
+	section#digit-types div.to {
+		padding-left: 5%;
+	}
+	button.reverse svg {
+		transform: scale(2);
+	}
+}
+
+/* Mobile */
+@media all and (max-width: 480px) {
+	:root {
+		--margin-border: 24px;
+	}
+
+	h1 {
+		font-size: 32px;
+	}
+	h2,
+	h2 span {
+		font-size: 20px;
+		font-weight: bold;
+	}
+}

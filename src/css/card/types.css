@@ -1,0 +1,98 @@
+div.card section.types {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	position: relative;
+	margin-bottom: 24px;
+}
+
+/* --------------------------------------------------------------------- */
+/** Dropdown */
+select.dropdown {
+	width: 100%;
+	border: none;
+	background-color: var(--binary);
+	color: white;
+	border-radius: 16px;
+	box-shadow: var(--shadow-binary);
+
+	font-family: Lato, Arial, Helvetica, sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+
+	padding: 12px 56px;
+	appearance: none;
+
+	background-position: 16px center, calc(100% - 16px) center;
+	background-repeat: no-repeat, no-repeat;
+}
+
+select.dropdown.binary {
+	background-image: url(../../assets/base-2.svg), url(../../assets/arrow-down.svg);
+	background-color: var(--binary);
+}
+select.dropdown.decimal {
+	background-image: url(../../assets/base-10.svg), url(../../assets/arrow-down.svg);
+	background-color: var(--decimal);
+}
+select.dropdown.octal {
+	background-image: url(../../assets/base-8.svg), url(../../assets/arrow-down.svg);
+	background-color: var(--octal);
+}
+select.dropdown.hexadecimal {
+	background-image: url(../../assets/base-16.svg), url(../../assets/arrow-down.svg);
+	background-color: var(--hexadecimal);
+}
+
+/* ---------------------------------------------------------------- */
+
+div.from {
+	margin-bottom: 24px;
+}
+div.from,
+div.to {
+	width: 100%;
+}
+
+/* ------------------------------------------------------------------ */
+/** Reverse Button */
+button.reverse {
+	border-radius: 100rem;
+	color: white;
+	border: solid 2px transparent;
+	background-image: linear-gradient(
+			rgba(255, 255, 255, 0),
+			rgba(255, 255, 255, 0)
+		),
+		linear-gradient(180deg, var(--binary), var(--decimal));
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	box-shadow: 2px 1000px 1px #fff inset;
+
+	height: 48px;
+	width: 48px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+button.reverse path.binary {
+	fill: var(--binary);
+}
+button.reverse path.decimal {
+	fill: var(--decimal);
+}
+button.reverse path.octal {
+	fill: var(--octal);
+}
+button.reverse path.hexadecimal {
+	fill: var(--hexadecimal);
+}
