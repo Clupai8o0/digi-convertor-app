@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // State Management
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 import { getTypeBase, Types } from "../../lib/types";
 
@@ -16,7 +16,7 @@ import { gsap } from "gsap";
 const TypeSelector = ({ from }: { from?: Boolean }) => {
 	// States
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const type = useRecoilValue(from ? fromTypeState : toTypeState);
+	const [type, setType] = useRecoilState(from ? fromTypeState : toTypeState);
 	const typeToDisable = useRecoilValue(!from ? fromTypeState : toTypeState);
 
 	// Refs
@@ -63,6 +63,19 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 			} else {
 				setIsDropdownOpen(true);
 			}
+		}
+	}
+
+	function handleDropdownChange(event: React.ChangeEvent<HTMLSelectElement>) {
+		const selectedType = event.target.value;
+		if (selectedType === Types.Binary) {
+			setType(Types.Binary);
+		} else if (selectedType === Types.Decimal) {
+			setType(Types.Decimal);
+		} else if (selectedType === Types.Octal) {
+			setType(Types.Octal);
+		} else {
+			setType(Types.Hexadecimal)
 		}
 	}
 
@@ -119,7 +132,26 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 			</div>
 
 			{/* Type Selector for Mobile  */}
-			{/* TODO: Need to add */}
+			<div>
+				<select
+					className={style.dropdownSelect}
+					data-type={type}
+					onChange={handleDropdownChange}
+				>
+					<option value="Binary" selected={type === Types.Binary}>
+						Binary
+					</option>
+					<option value="Decimal" selected={type === Types.Decimal}>
+						Decimal
+					</option>
+					<option value="Octal" selected={type === Types.Octal}>
+						Octal
+					</option>
+					<option value="Hexadecimal" selected={type === Types.Hexadecimal}>
+						Hexadecimal
+					</option>
+				</select>
+			</div>
 		</>
 	);
 };

@@ -7,6 +7,8 @@
   display: inline-block;
 	width: 100%;
 	cursor: pointer;
+
+	display: none;
 }
 
 .dropdownSelected {
@@ -137,4 +139,40 @@
 
 .selected {
 	display: none !important;
+}
+
+.dropdownSelect {
+	width: 100%;
+	border: none;
+	background-color: var(--binary);
+	color: white;
+	border-radius: 16px;
+	box-shadow: var(--shadow-binary);
+
+	font-family: Lato, Arial, Helvetica, sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+
+	padding: 12px 56px;
+	appearance: none;
+
+	background-position: 16px center, calc(100% - 16px) center;
+	background-repeat: no-repeat, no-repeat;
+}
+
+.dropdownSelect[data-type="Binary"] {
+	background-image: url(base-2.svg), url(arrow-down.svg);
+	background-color: var(--binary);
+}
+.dropdownSelect[data-type="Decimal"] {
+	background-image: url(base-10.svg), url(arrow-down.svg);
+	background-color: var(--decimal);
+}
+.dropdownSelect[data-type="Octal"] {
+	background-image: url(base-8.svg), url(arrow-down.svg);
+	background-color: var(--octal);
+}
+.dropdownSelect[data-type="Hexadecimal"] {
+	background-image: url(base-16.svg), url(arrow-down.svg);
+	background-color: var(--hexadecimal);
 }
