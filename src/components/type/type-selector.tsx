@@ -44,7 +44,7 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 			{/* Type Selector for Desktop & Tablets */}
 			<div className={style.dropdown} onClick={handleDropdownClick}>
 				{/* Selected of the dropdown */}
-				<div className={style.dropdownSelected}>
+				<div className={style.dropdownSelected} data-type={type}>
 					<img src={`${getTypeBase(type)}.svg`} alt="Base value" />
 					<span>{type}</span>
 					<img src="arrow-down.svg" alt="Downwards arrow" />

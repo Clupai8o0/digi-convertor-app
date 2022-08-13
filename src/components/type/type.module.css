@@ -8,25 +8,6 @@
 	width: 100%;
 }
 
-select.dropdown {
-	width: 100%;
-	border: none;
-	background-color: var(--binary);
-	color: white;
-	border-radius: 16px;
-	box-shadow: var(--shadow-binary);
-
-	font-family: Lato, Arial, Helvetica, sans-serif;
-	font-weight: 600;
-	font-size: 20px;
-
-	padding: 12px 56px;
-	appearance: none;
-
-	background-position: 16px center, calc(100% - 16px) center;
-	background-repeat: no-repeat, no-repeat;
-}
-
 .dropdownSelected {
 	width: 100%;
 	background: var(--binary);
@@ -46,6 +27,23 @@ select.dropdown {
 	align-items: center;
 }
 
+.dropdownSelected[data-type="Binary"] {
+	background: var(--binary);
+	box-shadow: var(--shadow-binary);
+}
+.dropdownSelected[data-type="Decimal"] {
+	background: var(--decimal);
+	box-shadow: var(--shadow-decimal);
+}
+.dropdownSelected[data-type="Octal"] {
+	background: var(--octal);
+	box-shadow: var(--shadow-octal);
+}
+.dropdownSelected[data-type="Hexadecimal"] {
+	background: var(--hexadecimal);
+	box-shadow: var(--shadow-hexadecimal);
+}
+
 .dropdownSelected span {
 	flex: 1;
 	margin-left: 12px;
@@ -62,12 +60,10 @@ select.dropdown {
   position: absolute;
 
 	flex-direction: column;
-
-  background-color: var(--binary);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
   z-index: 1;
+
+	width: 100%;
+	background: var(--decimal);
 }
 
 .dropdown.focus .dropdownContent {
