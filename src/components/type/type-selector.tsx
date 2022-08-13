@@ -51,7 +51,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 				</div>
 
 				{/* Options of the dropdown */}
-				<div className={style.dropdownContent} ref={dropdownRef}>
+				<div
+					className={style.dropdownContent}
+					ref={dropdownRef}
+					data-type={type}
+				>
 					<Option
 						type={Types.Binary}
 						selected={type === Types.Binary ? true : false}

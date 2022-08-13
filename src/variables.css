@@ -10,6 +10,12 @@
 	--hexadecimal: #f36161;
 	--color: #000;
 
+	/* Colors but Brighter */
+	--brighter-decimal: #6b6b6b;
+	--brighter-binary: #5592ee;
+	--brighter-octal: #f5b974;
+	--brighter-hexadecimal: #f08383;
+
 	/* Shadows */
 	--shadow-decimal: 0px 4px 16px 0px rgba(78, 78, 78, 0.6);
 	--shadow-binary: 0px 4px 16px 0px rgba(55, 134, 251, 0.5);
