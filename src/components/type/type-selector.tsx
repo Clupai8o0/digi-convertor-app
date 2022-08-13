@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 
 // State Management
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 import { getTypeBase, Types } from "../../lib/types";
 
@@ -15,12 +15,7 @@ import style from "./type.module.css";
 const TypeSelector = ({ from }: { from?: Boolean }) => {
 	// States
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const [fromType, setFromType] = useRecoilState(fromTypeState);
-	const [toType, setToType] = useRecoilState(toTypeState);
-
-	// Reducing the state logic
-	const type = from ? fromType : toType;
-	const setType = from ? setFromType : setToType;
+	const type = useRecoilValue(from ? fromTypeState : toTypeState);
 
 	// Refs
 	const dropdownRef = useRef(null);
@@ -56,19 +51,19 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 					ref={dropdownRef}
 					data-type={type}
 				>
-					<Option
+					<Option from
 						type={Types.Binary}
 						selected={type === Types.Binary ? true : false}
 					/>
-					<Option
+					<Option from
 						type={Types.Decimal}
 						selected={type === Types.Decimal ? true : false}
 					/>
-					<Option
+					<Option from
 						type={Types.Octal}
 						selected={type === Types.Octal ? true : false}
 					/>
-					<Option
+					<Option from
 						type={Types.Hexadecimal}
 						selected={type === Types.Hexadecimal ? true : false}
 					/>
