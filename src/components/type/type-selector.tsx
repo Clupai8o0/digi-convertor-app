@@ -13,6 +13,7 @@ import Option from "./type-selector-option";
 import style from "./type.module.css";
 
 const TypeSelector = ({ from }: { from?: Boolean }) => {
+	console.log("Type selector", from)
 	// States
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const type = useRecoilValue(from ? fromTypeState : toTypeState);
@@ -53,25 +54,25 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 					data-type={type}
 				>
 					<Option
-						from
+						from={from ? true : false}
 						type={Types.Binary}
 						selected={type === Types.Binary ? true : false}
 						disabled={typeToDisable === Types.Binary ? true : false}
 					/>
 					<Option
-						from
+						from={from ? true : false}
 						type={Types.Decimal}
 						selected={type === Types.Decimal ? true : false}
 						disabled={typeToDisable === Types.Decimal ? true : false}
 					/>
 					<Option
-						from
+						from={from ? true : false}
 						type={Types.Octal}
 						selected={type === Types.Octal ? true : false}
 						disabled={type === Types.Octal ? true : false}
 					/>
 					<Option
-						from
+						from={from ? true : false}
 						type={Types.Hexadecimal}
 						selected={type === Types.Hexadecimal ? true : false}
 						disabled={type === Types.Hexadecimal ? true : false}
