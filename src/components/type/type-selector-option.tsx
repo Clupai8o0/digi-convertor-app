@@ -13,9 +13,10 @@ interface Options {
 	selected?: Boolean;
 	from?: Boolean;
 	disabled?: Boolean;
+	setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Option = ({ type, selected, from, disabled }: Options) => {
+const Option = ({ type, selected, from, disabled, setIsDropdownOpen }: Options) => {
 	const setType = useSetRecoilState(from ? fromTypeState : toTypeState);
 
 	return (
@@ -23,6 +24,7 @@ const Option = ({ type, selected, from, disabled }: Options) => {
 			className={selected || disabled ? styles.selected : ""}
 			onClick={() => {
 				setType(type);
+				setIsDropdownOpen(false);
 			}}
 		>
 			<img src={`${getTypeBase(type)}.svg`} alt="Type Base" />

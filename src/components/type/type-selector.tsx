@@ -23,40 +23,44 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 	const dropdownRef = useRef(null);
 
 	// Animation
+	const tl = gsap.timeline();
 	useEffect(() => {
-		if (dropdownRef) {
-			gsap.fromTo(
-				dropdownRef.current,
-				{ y: 30, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 0.2 }
-			);
-		}
-	});
-
-	function handleDropdownClick() {
 		let timeout: number | undefined = undefined;
+
 		if (dropdownRef) {
 			if (isDropdownOpen) {
-				setIsDropdownOpen(false);
 				// @ts-ignore
+				dropdownRef.current.style.display = "flex";
 				gsap.fromTo(
 					dropdownRef.current,
-					{ y: 0, opacity: 1, delay: 0 },
-					{ y: 30, opacity: 0, duration: 0.2 }
+					{ y: -30, opacity: 0, scale: 0.8 },
+					{ y: 0, opacity: 1, scale: 1, duration: 0.4 }
+				);
+			} else {
+				gsap.fromTo(
+					dropdownRef.current,
+					{ y: 0, opacity: 1, scale: 1 },
+					{ y: -30, opacity: 0, scale: 0.8, duration: 0.4 }
 				);
 				timeout = setTimeout(() => {
 					// @ts-ignore
 					dropdownRef.current.style.display = "none";
-				}, 2000)
-			} else {
-				setIsDropdownOpen(true);
-				// @ts-ignore
-				dropdownRef.current.style.display = "flex";
+				}, 2000);
 			}
 		}
 
 		return () => {
 			clearTimeout(timeout);
+		};
+	}, [isDropdownOpen]);
+
+	function handleDropdownClick() {
+		if (dropdownRef) {
+			if (isDropdownOpen) {
+				setIsDropdownOpen(false);
+			} else {
+				setIsDropdownOpen(true);
+			}
 		}
 	}
 
@@ -82,24 +86,28 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						type={Types.Binary}
 						selected={type === Types.Binary ? true : false}
 						disabled={typeToDisable === Types.Binary ? true : false}
+						setIsDropdownOpen={setIsDropdownOpen}
 					/>
 					<Option
 						from={from ? true : false}
 						type={Types.Decimal}
 						selected={type === Types.Decimal ? true : false}
 						disabled={typeToDisable === Types.Decimal ? true : false}
+						setIsDropdownOpen={setIsDropdownOpen}
 					/>
 					<Option
 						from={from ? true : false}
 						type={Types.Octal}
 						selected={type === Types.Octal ? true : false}
 						disabled={typeToDisable === Types.Octal ? true : false}
+						setIsDropdownOpen={setIsDropdownOpen}
 					/>
 					<Option
 						from={from ? true : false}
 						type={Types.Hexadecimal}
 						selected={type === Types.Hexadecimal ? true : false}
 						disabled={typeToDisable === Types.Hexadecimal ? true : false}
+						setIsDropdownOpen={setIsDropdownOpen}
 					/>
 				</div>
 			</div>
