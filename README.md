@@ -15,3 +15,7 @@ A mini-project convertor, that takes a digital value as input like decimal/binar
 - [] Add dark mode for the solution images
 <!-- - [] Replace the src locations in html and js files -->
 - [] Add height for typing animation in different resolutions
+
+# Design Decisions to Consider
+
+- [] Highlighting the texts in the heading

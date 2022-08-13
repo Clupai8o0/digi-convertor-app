@@ -22,8 +22,8 @@ function Card() {
 
 			{/* Types Selector */}
 			<section className="types-selector">
-				<TypeSelector />
-				{/* <TypeReverseButton /> */}
+				<TypeSelector from />
+				{/* <TypeReverseButton /> */}w
 				{/* <TypeSelector /> */}
 			</section>
 

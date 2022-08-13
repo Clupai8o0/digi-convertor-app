@@ -1,19 +1,52 @@
+// Imports
+import { useRef, useState, useEffect } from "react";
+
+// State Management
+import { useRecoilState } from "recoil";
+import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
+import { getTypeBase } from "../../lib/types";
+
 // CSS
 import style from "./type.module.css";
 
-const TypeSelector = () => {
+const TypeSelector = ({ from }: { from?: Boolean }) => {
+	// States
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [fromType, setFromType] = useRecoilState(fromTypeState);
+	const [toType, setToType] = useRecoilState(toTypeState);
+
+	// Refs
+	const dropdownRef = useRef(null);
+
+	function handleDropdownClick() {
+		if (dropdownRef) {
+			if (isDropdownOpen) {
+				setIsDropdownOpen(false);
+				// @ts-ignore
+				dropdownRef.current.style.display = "none";
+			} else {
+				setIsDropdownOpen(true);
+				// @ts-ignore
+				dropdownRef.current.style.display = "flex";
+			}
+		}
+	}
+
 	return (
 		<>
 			{/* Type Selector for Desktop & Tablets */}
-			<div className={style.dropdown}>
+			<div className={style.dropdown} onClick={handleDropdownClick}>
 				{/* Selected of the dropdown */}
 				<div className={style.dropdownSelected}>
-					<img src="base-2.svg" alt="Base 2" />
+					<img
+						src={`${from ? getTypeBase(fromType) : getTypeBase(toType)}.svg`}
+						alt="Base value"
+					/>
 					<span>Binary</span>
 					<img src="arrow-down.svg" alt="Downwards arrow" />
 				</div>
 
-				<div className={style.dropdownContent}>
+				<div className={style.dropdownContent} ref={dropdownRef}>
 					<a className="binary">
 						<svg
 							width="30"
