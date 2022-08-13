@@ -42,10 +42,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						src={`${from ? getTypeBase(fromType) : getTypeBase(toType)}.svg`}
 						alt="Base value"
 					/>
-					<span>Binary</span>
+					<span>{from ? fromType : toType}</span>
 					<img src="arrow-down.svg" alt="Downwards arrow" />
 				</div>
 
+				{/* Options of the dropdown */}
 				<div className={style.dropdownContent} ref={dropdownRef}>
 					<a className="binary">
 						<svg
