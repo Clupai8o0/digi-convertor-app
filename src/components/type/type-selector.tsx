@@ -9,8 +9,9 @@ import { getTypeBase, Types } from "../../lib/types";
 // Components
 import Option from "./type-selector-option";
 
-// CSS
+// Styles
 import style from "./type.module.css";
+import { gsap } from "gsap";
 
 const TypeSelector = ({ from }: { from?: Boolean }) => {
 	// States
@@ -18,25 +19,44 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 	const type = useRecoilValue(from ? fromTypeState : toTypeState);
 	const typeToDisable = useRecoilValue(!from ? fromTypeState : toTypeState);
 
-	//TODO: Remove
-	useEffect(( ) => {
-		console.log({type, typeToDisable, from})
-	}, [type, typeToDisable])
-
 	// Refs
 	const dropdownRef = useRef(null);
 
+	// Animation
+	useEffect(() => {
+		if (dropdownRef) {
+			gsap.fromTo(
+				dropdownRef.current,
+				{ y: 30, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.2 }
+			);
+		}
+	});
+
 	function handleDropdownClick() {
+		let timeout: number | undefined = undefined;
 		if (dropdownRef) {
 			if (isDropdownOpen) {
 				setIsDropdownOpen(false);
 				// @ts-ignore
-				dropdownRef.current.style.display = "none";
+				gsap.fromTo(
+					dropdownRef.current,
+					{ y: 0, opacity: 1, delay: 0 },
+					{ y: 30, opacity: 0, duration: 0.2 }
+				);
+				timeout = setTimeout(() => {
+					// @ts-ignore
+					dropdownRef.current.style.display = "none";
+				}, 2000)
 			} else {
 				setIsDropdownOpen(true);
 				// @ts-ignore
 				dropdownRef.current.style.display = "flex";
 			}
+		}
+
+		return () => {
+			clearTimeout(timeout);
 		}
 	}
 
