@@ -1,6 +1,5 @@
 // State Management
-import { useEffect } from "react";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 
 // Types

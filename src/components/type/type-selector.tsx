@@ -1,5 +1,5 @@
 // Imports
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // State Management
 import { useRecoilValue } from "recoil";
@@ -13,11 +13,15 @@ import Option from "./type-selector-option";
 import style from "./type.module.css";
 
 const TypeSelector = ({ from }: { from?: Boolean }) => {
-	console.log("Type selector", from)
 	// States
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const type = useRecoilValue(from ? fromTypeState : toTypeState);
 	const typeToDisable = useRecoilValue(!from ? fromTypeState : toTypeState);
+
+	//TODO: Remove
+	useEffect(( ) => {
+		console.log({type, typeToDisable, from})
+	}, [type, typeToDisable])
 
 	// Refs
 	const dropdownRef = useRef(null);
@@ -69,13 +73,13 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						from={from ? true : false}
 						type={Types.Octal}
 						selected={type === Types.Octal ? true : false}
-						disabled={type === Types.Octal ? true : false}
+						disabled={typeToDisable === Types.Octal ? true : false}
 					/>
 					<Option
 						from={from ? true : false}
 						type={Types.Hexadecimal}
 						selected={type === Types.Hexadecimal ? true : false}
-						disabled={type === Types.Hexadecimal ? true : false}
+						disabled={typeToDisable === Types.Hexadecimal ? true : false}
 					/>
 				</div>
 			</div>
