@@ -23,8 +23,8 @@ function Card() {
 			{/* Types Selector */}
 			<section className="types-selector">
 				<TypeSelector from />
-				{/* <TypeReverseButton /> */}w
-				{/* <TypeSelector /> */}
+				{/* <TypeReverseButton /> */}
+				<TypeSelector />
 			</section>
 
 			{/* Form for digit to be converted input */}

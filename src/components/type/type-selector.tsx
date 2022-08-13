@@ -16,6 +16,7 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 	// States
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const type = useRecoilValue(from ? fromTypeState : toTypeState);
+	const typeToDisable = useRecoilValue(!from ? fromTypeState : toTypeState);
 
 	// Refs
 	const dropdownRef = useRef(null);
@@ -51,21 +52,29 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 					ref={dropdownRef}
 					data-type={type}
 				>
-					<Option from
+					<Option
+						from
 						type={Types.Binary}
 						selected={type === Types.Binary ? true : false}
+						disabled={typeToDisable === Types.Binary ? true : false}
 					/>
-					<Option from
+					<Option
+						from
 						type={Types.Decimal}
 						selected={type === Types.Decimal ? true : false}
+						disabled={typeToDisable === Types.Decimal ? true : false}
 					/>
-					<Option from
+					<Option
+						from
 						type={Types.Octal}
 						selected={type === Types.Octal ? true : false}
+						disabled={type === Types.Octal ? true : false}
 					/>
-					<Option from
+					<Option
+						from
 						type={Types.Hexadecimal}
 						selected={type === Types.Hexadecimal ? true : false}
+						disabled={type === Types.Hexadecimal ? true : false}
 					/>
 				</div>
 			</div>
