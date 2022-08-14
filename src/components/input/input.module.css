@@ -73,3 +73,42 @@
 .input[data-type="Hexadecimal"]:valid ~ .userLabel {
 	color: var(--hexadecimal);
 }
+
+
+.converted {
+	width: 100%;
+	border: solid 1.5px var(--input-border-initial);
+	padding: 16px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: 0.2s all;
+}
+
+.converted:hover {
+	background: rgb(247, 247, 247);
+}
+.converted:hover svg path {
+	fill: var(--input-selected-color);
+}
+
+.converted p {
+	color: var(--input-placeholder-color);
+	font-size: 20px;
+	font-weight: 500;
+	font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.converted svg path {
+	fill: var(--input-placeholder-color);
+	transition: 0.2s all;
+	stroke-width: 1;
+}
+
+.converted p.has-value {
+	color: var(--color);
+}

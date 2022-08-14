@@ -6,5 +6,5 @@ export const fromInputState = atom({
 })
 export const toInputState = atom({
 	key: "toInputStateKey",
-	default: "",
+	default: "011",
 });
