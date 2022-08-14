@@ -132,7 +132,7 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 			</div>
 
 			{/* Type Selector for Mobile  */}
-			<div>
+			<div style={{ width: "100%" }}>
 				<select
 					className={style.dropdownSelect}
 					data-type={type}
@@ -140,28 +140,44 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 				>
 					<option
 						value="Binary"
-						className={type === Types.Binary || typeToDisable === Types.Binary ? style.selected : ""}
+						className={
+							type === Types.Binary || typeToDisable === Types.Binary
+								? style.selected
+								: ""
+						}
 						selected={type === Types.Binary}
 					>
 						Binary
 					</option>
 					<option
 						value="Decimal"
-						className={type === Types.Decimal || typeToDisable === Types.Decimal ? style.selected : ""}
+						className={
+							type === Types.Decimal || typeToDisable === Types.Decimal
+								? style.selected
+								: ""
+						}
 						selected={type === Types.Decimal}
 					>
 						Decimal
 					</option>
 					<option
 						value="Octal"
-						className={type === Types.Octal || typeToDisable === Types.Octal ? style.selected : ""}
+						className={
+							type === Types.Octal || typeToDisable === Types.Octal
+								? style.selected
+								: ""
+						}
 						selected={type === Types.Octal}
 					>
 						Octal
 					</option>
 					<option
 						value="Hexadecimal"
-						className={type === Types.Hexadecimal || typeToDisable === Types.Hexadecimal ? style.selected : ""}
+						className={
+							type === Types.Hexadecimal || typeToDisable === Types.Hexadecimal
+								? style.selected
+								: ""
+						}
 						selected={type === Types.Hexadecimal}
 					>
 						Hexadecimal
