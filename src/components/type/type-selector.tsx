@@ -75,7 +75,7 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 		} else if (selectedType === Types.Octal) {
 			setType(Types.Octal);
 		} else {
-			setType(Types.Hexadecimal)
+			setType(Types.Hexadecimal);
 		}
 	}
 
@@ -138,16 +138,32 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 					data-type={type}
 					onChange={handleDropdownChange}
 				>
-					<option value="Binary" selected={type === Types.Binary}>
+					<option
+						value="Binary"
+						className={type === Types.Binary || typeToDisable === Types.Binary ? style.selected : ""}
+						selected={type === Types.Binary}
+					>
 						Binary
 					</option>
-					<option value="Decimal" selected={type === Types.Decimal}>
+					<option
+						value="Decimal"
+						className={type === Types.Decimal || typeToDisable === Types.Decimal ? style.selected : ""}
+						selected={type === Types.Decimal}
+					>
 						Decimal
 					</option>
-					<option value="Octal" selected={type === Types.Octal}>
+					<option
+						value="Octal"
+						className={type === Types.Octal || typeToDisable === Types.Octal ? style.selected : ""}
+						selected={type === Types.Octal}
+					>
 						Octal
 					</option>
-					<option value="Hexadecimal" selected={type === Types.Hexadecimal}>
+					<option
+						value="Hexadecimal"
+						className={type === Types.Hexadecimal || typeToDisable === Types.Hexadecimal ? style.selected : ""}
+						selected={type === Types.Hexadecimal}
+					>
 						Hexadecimal
 					</option>
 				</select>
