@@ -51,3 +51,16 @@
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
+
+.binaryPath {
+	stop-color: var(--binary);
+}
+.decimalPath {
+	stop-color: var(--decimal);
+}
+.octalPath {
+	stop-color: var(--octal);
+}
+.hexadecimalPath {
+	stop-color: var(--hexadecimal);
+}

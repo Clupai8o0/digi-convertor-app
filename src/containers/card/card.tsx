@@ -1,5 +1,6 @@
 // Imports
 import { useEffect } from "react";
+import { Types } from "../../lib/types";
 
 // Components
 import TypeText from "../../components/type/type-text";
@@ -31,6 +32,23 @@ function Card() {
 	useEffect(() => {
 		setToInput("");
 	}, [toType]);
+
+	function getArrowGradient(from?: Boolean) {
+		let type = null;
+		if (from) {
+			type = fromType;
+		} else type = toType;
+
+		if (type === Types.Binary) {
+			return styles.binaryPath;
+		} else if (type === Types.Decimal) {
+			return styles.decimalPath;
+		} else if (type === Types.Octal) {
+			return styles.octalPath;
+		} else {
+			return styles.hexadecimalPath;
+		}
+	}
 
 	return (
 		<div className={styles.card}>
@@ -74,8 +92,8 @@ function Card() {
 							y2="26"
 							gradientUnits="userSpaceOnUse"
 						>
-							<stop stop-color="#619CF3" id="from-stop" />
-							<stop offset="1" stop-color="#F36161" id="to-stop" />
+							<stop className={getArrowGradient(true)} id="from-stop" />
+							<stop offset="1" className={getArrowGradient()} id="to-stop" />
 						</linearGradient>
 					</defs>
 				</svg>
