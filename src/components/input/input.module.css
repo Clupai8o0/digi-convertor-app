@@ -1,6 +1,6 @@
 .inputGroup {
 	position: relative;
-  width: 100%;
+	width: 100%;
 }
 
 .input {
@@ -30,10 +30,25 @@
 	transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input:focus,
-.input:valid {
+.input[data-type="Binary"]:focus,
+.input[data-type="Binary"]:valid {
 	outline: none;
-	border: 2px solid #3786fb;
+	border: 2px solid var(--binary);
+}
+.input[data-type="Decimal"]:focus,
+.input[data-type="Decimal"]:valid {
+	outline: none;
+	border: 2px solid var(--decimal);
+}
+.input[data-type="Octal"]:focus,
+.input[data-type="Octal"]:valid {
+	outline: none;
+	border: 2px solid var(--octal);
+}
+.input[data-type="Hexadecimal"]:focus,
+.input[data-type="Hexadecimal"]:valid {
+	outline: none;
+	border: 2px solid var(--hexadecimal);
 }
 
 .input:focus ~ .userLabel,
@@ -41,15 +56,20 @@
 	transform: translateY(-50%) scale(0.7) translateX(-20%);
 	background-color: var(--card-background);
 	padding: 0 0.4em;
-	color: #3786fb;
 }
-
-/** Input Error */
-.input.error {
-	border: 2px solid rgb(230, 90, 90) !important;
-	color: rgb(230, 90, 90) !important;
+.input[data-type="Binary"]:focus ~ .userLabel,
+.input[data-type="Binary"]:valid ~ .userLabel {
+	color: var(--binary);
 }
-.error.input:focus ~ .userLabel,
-.input.error:valid ~ .userLabel {
-	color: rgb(230, 90, 90);
+.input[data-type="Decimal"]:focus ~ .userLabel,
+.input[data-type="Decimal"]:valid ~ .userLabel {
+	color: var(--decimal);
+}
+.input[data-type="Octal"]:focus ~ .userLabel,
+.input[data-type="Octal"]:valid ~ .userLabel {
+	color: var(--octal);
+}
+.input[data-type="Hexadecimal"]:focus ~ .userLabel,
+.input[data-type="Hexadecimal"]:valid ~ .userLabel {
+	color: var(--hexadecimal);
 }

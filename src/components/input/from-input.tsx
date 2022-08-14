@@ -59,8 +59,9 @@ const Input = () => {
 				className={styles.input}
 				value={value}
 				onChange={(e) => handleInputChange(e)}
+        data-type={fromType}
 			/>
-			<label className={styles.userLabel}>Binary</label>
+			<label className={styles.userLabel}>{fromType}</label>
 		</div>
 	);
 };
