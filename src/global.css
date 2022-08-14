@@ -10,7 +10,6 @@
 div.dark, div.light {
   background: var(--background);
   padding: var(--margin-border);
-  height: 100vh;
 
   transition: all 0.8s cubic-bezier(0.65,0.05,0.36,1);
 }

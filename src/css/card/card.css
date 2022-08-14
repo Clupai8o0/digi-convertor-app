@@ -1,7 +1,0 @@
-main div.card {
-	background: var(--card-background);
-	border: var(--card-border);
-	box-shadow: var(--card-shadow);
-	border-radius: 8px;
-	padding: var(--card-padding);
-}

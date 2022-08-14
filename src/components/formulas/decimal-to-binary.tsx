@@ -1,13 +1,16 @@
+import "./formulas.css";
+
 const DecimalToBinary = () => {
 	return (
 		<>
 			<h2>Decimal to Binary Conversion</h2>
 			<p>
-				The common method of converting decimal to binary is repeated-division
-				method. In this method, the number is successfully divided by 2 and it’s
+				The common method of converting decimal to binary is{" "}
+				<b>repeated-division method.</b> <br />
+				In this method, the number is successfully divided by 2 and it’s
 				remainders recorded. The final binary result is obtained by assembling
-				all the remainders, with the last remainder being the most significant
-				bit (MSB).
+				all the remainders, with the last remainder being the{" "}
+				<b>Most Significant Bit (MSB)</b> .
 			</p>
 			<svg
 				width="453"
@@ -224,7 +227,8 @@ const DecimalToBinary = () => {
 			</svg>
 			<p>
 				Then write the reminders in the last-to-first order. It means 5 of
-				decimal number system is equal to 101 in binary system 510 = 101<sub>2</sub>.
+				decimal number system is equal to 101 in binary system 510 = 101
+				<sub>2</sub>.
 			</p>
 		</>
 	);
