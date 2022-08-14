@@ -1,8 +1,20 @@
-import React from 'react'
+// State Management
+import { useRecoilState } from "recoil";
+import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
+
 
 const TypeReverseButton = () => {
+	const [fromType, setFromType] = useRecoilState(fromTypeState);
+	const [toType, setToType] = useRecoilState(toTypeState);
+
+	function handleTypeReversal() {
+		const tempTypeHolder = toType;
+		setToType(fromType);
+		setFromType(tempTypeHolder);
+	}
+
   return (
-		<button className="reverse" id="reverse">
+		<button className="reverse" id="reverse" onClick={handleTypeReversal}>
 			<svg
 				width="20"
 				height="26"
