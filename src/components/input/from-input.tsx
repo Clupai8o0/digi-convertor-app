@@ -1,10 +1,8 @@
-// Imports
-import { useState } from "react";
-
 // State Management
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { fromTypeState } from "../../atoms/typesAtom";
 import { getPossibleProbablesMsg, getProbables } from "../../lib/types";
+import { fromInputState } from "../../atoms/inputAtom";
 
 // Styles
 import styles from "./input.module.css";
@@ -13,7 +11,7 @@ import styles from "./input.module.css";
 import { Store } from "react-notifications-component";
 
 const Input = () => {
-	const [value, setValue] = useState("");
+	const [value, setValue] = useRecoilState(fromInputState);
 	const fromType = useRecoilValue(fromTypeState);
 
 	function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
