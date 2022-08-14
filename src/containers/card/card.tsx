@@ -14,16 +14,16 @@ function Card() {
 			{/* Card Header */}
 			<header className={styles.header}>
 				<h2>
-					Convert <TypeText from /> to{" "}
-					<TypeText />
+					Convert <TypeText from /> to <TypeText />
 				</h2>
 				<ThemeChanger />
 			</header>
 
 			{/* Types Selector */}
-			<section className="types-selector">
+			<section className={styles.typesSelector}>
 				<TypeSelector from />
-				{/* <TypeReverseButton /> */}
+				<div style={{ marginBottom: "24px" }} />
+				<TypeReverseButton />
 				<TypeSelector />
 			</section>
 
@@ -39,7 +39,7 @@ function Card() {
 						id="from-input"
 					/>
 					{/* // onChange={"convert(this.value)"} /> */}
-					{/*<label className="user-label">Binary</label>
+			{/*<label className="user-label">Binary</label>
 				</div>
 
 				<svg
