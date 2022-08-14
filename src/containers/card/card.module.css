@@ -4,6 +4,8 @@
 	box-shadow: var(--card-shadow);
 	border-radius: 8px;
 	padding: var(--card-padding);
+
+  transition: all 0.8s cubic-bezier(0.65,0.05,0.36,1);
 }
 
 .header {
