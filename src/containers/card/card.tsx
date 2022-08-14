@@ -29,7 +29,7 @@ function Card() {
 			</section>
 
 			{/* Form for digit to be converted input */}
-			<form className={styles.form}>
+			<form className={styles.form} onSubmit={e => e.preventDefault()}>
 				<Input />
 
 				<svg

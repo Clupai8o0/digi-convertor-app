@@ -46,6 +46,22 @@ export function getProbables(type: Types): String[] {
 	}
 }
 
+export function getPossibleProbablesMsg(type: Types): String {
+	const probables = getProbables(type);
+	let str = "";
+	probables.forEach((probable, i) => {
+		if (i === probables.length - 2) {
+			str += `${probable}, and `;
+		}	else if (i === probables.length - 1) {
+			str += `${probable}`;
+		} else {
+			str += `${probable}, `;
+		}
+	})
+
+	return str.toUpperCase();
+}
+
 export enum Theme {
 	Light = "Light",
 	Dark = "Dark",

@@ -2,16 +2,19 @@
 import { useState } from "react";
 
 // State Management
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { fromTypeState } from "../../atoms/typesAtom";
-import { getProbables } from "../../lib/types";
+import { getPossibleProbablesMsg, getProbables } from "../../lib/types";
 
 // Styles
 import styles from "./input.module.css";
 
+// Notification
+import { Store } from "react-notifications-component";
+
 const Input = () => {
 	const [value, setValue] = useState("");
-	const [fromType, setFromType] = useRecoilState(fromTypeState);
+	const fromType = useRecoilValue(fromTypeState);
 
 	function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
 		const inputArr = event.target.value.split("");
@@ -29,7 +32,21 @@ const Input = () => {
 
 		if (inputArr.length === 0) {
 			setValue(event.target.value);
-		}
+		} else {
+      Store.addNotification({
+				title: "Warning",
+				message: `You can only add ${getPossibleProbablesMsg(fromType)} for conversion`,
+				type: "danger",
+				insert: "top",
+				container: "top-right",
+				animationIn: ["animate__animated", "animate__fadeIn"],
+				animationOut: ["animate__animated", "animate__fadeOut"],
+				dismiss: {
+					duration: 4000,
+					onScreen: true,
+				}
+			});
+    }
 	}
 
 	return (
