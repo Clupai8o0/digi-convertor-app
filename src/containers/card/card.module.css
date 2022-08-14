@@ -35,3 +35,19 @@
 	margin-bottom: 24px;
 	width: 100%;
 }
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form div.input-group {
+	width: 100%;
+}
+
+.form svg {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}

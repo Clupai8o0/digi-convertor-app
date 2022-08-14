@@ -7,6 +7,7 @@ import TypeSelector from "../../components/type/type-selector";
 
 // Css
 import styles from "./card.module.css";
+import Input from "../../components/input/from-input";
 
 function Card() {
 	return (
@@ -28,19 +29,8 @@ function Card() {
 			</section>
 
 			{/* Form for digit to be converted input */}
-			{/* <form id="inputs">
-				<div className="input-group">
-					<input
-						required
-						type="text"
-						name="text"
-						autoComplete="off"
-						className="input"
-						id="from-input"
-					/>
-					{/* // onChange={"convert(this.value)"} /> */}
-			{/*<label className="user-label">Binary</label>
-				</div>
+			<form className={styles.form}>
+				<Input />
 
 				<svg
 					width="16"
@@ -67,7 +57,7 @@ function Card() {
 						</linearGradient>
 					</defs>
 				</svg>
-			</form> */}
+			</form>
 
 			{/* <div className="converted" id="converted-text-container">
 				<p id="converted">Decimal...</p>
