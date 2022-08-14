@@ -1,15 +1,37 @@
+// Imports
+import { useEffect } from "react";
+
 // Components
 import TypeText from "../../components/type/type-text";
 import ThemeChanger from "../../components/theme-changer";
-
 import TypeReverseButton from "../../components/type/type-reverse-btn";
 import TypeSelector from "../../components/type/type-selector";
+
+// State Management
+import { useRecoilState, useRecoilValue } from "recoil";
+import { fromInputState, toInputState } from "../../atoms/inputAtom";
+import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 
 // Css
 import styles from "./card.module.css";
 import Input from "../../components/input/from-input";
 
 function Card() {
+	const [fromInput, setFromInput] = useRecoilState(fromInputState);
+	const [toInput, setToInput] = useRecoilState(toInputState);
+	const fromType = useRecoilValue(fromTypeState);
+	const toType = useRecoilValue(toTypeState);
+
+	// Clearing the input value, whenever from type state is changed
+	useEffect(() => {
+		setFromInput("");
+		setToInput("");
+	}, [fromType]);
+	// Clearing converted input, whenever to type state is changed
+	useEffect(() => {
+		setToInput("");
+	}, [toType]);
+
 	return (
 		<div className={styles.card}>
 			{/* Card Header */}
@@ -29,7 +51,7 @@ function Card() {
 			</section>
 
 			{/* Form for digit to be converted input */}
-			<form className={styles.form} onSubmit={e => e.preventDefault()}>
+			<form className={styles.form} onSubmit={(e) => e.preventDefault()}>
 				<Input />
 
 				<svg
