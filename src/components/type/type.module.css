@@ -161,22 +161,22 @@
 }
 
 .dropdownSelect[data-type="Binary"] {
-	background-image: url(base-2.svg), url(arrow-down.svg);
+	background-image: url("base-2.svg"), url("arrow-down.svg");
 	background-color: var(--binary);
 	box-shadow: var(--shadow-binary);
 }
 .dropdownSelect[data-type="Decimal"] {
-	background-image: url(base-10.svg), url(arrow-down.svg);
+	background-image: url("base-10.svg"), url("arrow-down.svg");
 	background-color: var(--decimal);
 	box-shadow: var(--shadow-decimal);
 }
 .dropdownSelect[data-type="Octal"] {
-	background-image: url(base-8.svg), url(arrow-down.svg);
+	background-image: url("base-8.svg"), url("arrow-down.svg");
 	background-color: var(--octal);
 	box-shadow: var(--shadow-octal);
 }
 .dropdownSelect[data-type="Hexadecimal"] {
-	background-image: url(base-16.svg), url(arrow-down.svg);
+	background-image: url("base-16.svg"), url("arrow-down.svg");
 	background-color: var(--hexadecimal);
 	box-shadow: var(--shadow-hexadecimal);
 }
