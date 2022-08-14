@@ -6,7 +6,7 @@ section.formula p {
 	margin-bottom: var(--margin-spacing-2);
 }
 
-section.formula p sub {
+section.formula p sub, section.formula p sup {
 	font-size: 10px;
 }
 
@@ -21,4 +21,7 @@ section.formula svg line {
 }
 section.formula svg path {
 	fill: var(--color);
+}
+section.formula svg rect {
+	stroke: var(--color);
 }
