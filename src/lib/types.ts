@@ -19,7 +19,7 @@ export function getTypeBase(type: Types): String {
 
 export function getProbables(type: Types): String[] {
 	if (type === Types.Binary) {
-		return ["0", "1"]
+		return ["0", "1"];
 	} else if (type === Types.Decimal) {
 		return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 	} else if (type === Types.Octal) {
@@ -50,16 +50,17 @@ export function getPossibleProbablesMsg(type: Types): String {
 	const probables = getProbables(type);
 	let str = "";
 	probables.forEach((probable, i) => {
+		probable = probable.toUpperCase();
 		if (i === probables.length - 2) {
 			str += `${probable}, and `;
-		}	else if (i === probables.length - 1) {
+		} else if (i === probables.length - 1) {
 			str += `${probable}`;
 		} else {
 			str += `${probable}, `;
 		}
-	})
+	});
 
-	return str.toUpperCase();
+	return str;
 }
 
 export enum Theme {
