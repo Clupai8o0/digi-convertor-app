@@ -1,18 +1,21 @@
 // State Management
-import { useRecoilState, useRecoilValue } from "recoil";
-import { fromTypeState } from "../../atoms/typesAtom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 import { getPossibleProbablesMsg, getProbables } from "../../lib/types";
-import { fromInputState } from "../../atoms/inputAtom";
+import { fromInputState, toInputState } from "../../atoms/inputAtom";
 
 // Styles
 import styles from "./input.module.css";
 
 // Notification
 import { Store } from "react-notifications-component";
+import { useEffect } from "react";
 
 const Input = () => {
 	const [value, setValue] = useRecoilState(fromInputState);
 	const fromType = useRecoilValue(fromTypeState);
+	const toType = useRecoilValue(toTypeState);
+	const setConvertedInput = useSetRecoilState(toInputState);
 
 	function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
 		const inputArr = event.target.value.split("");
@@ -30,10 +33,17 @@ const Input = () => {
 
 		if (inputArr.length === 0) {
 			setValue(event.target.value);
+
+			fetch(`${import.meta.env.VITE_API}convert/${fromType}/${toType}/${event.target.value}`)
+				.then((resp) => resp.json())
+				.then((data) => setConvertedInput(data.value))
+				.catch(console.error);
 		} else {
-      Store.addNotification({
+			Store.addNotification({
 				title: "Warning",
-				message: `You can only add ${getPossibleProbablesMsg(fromType)} for conversion`,
+				message: `You can only add ${getPossibleProbablesMsg(
+					fromType
+				)} for conversion`,
 				type: "danger",
 				insert: "top",
 				container: "top-right",
@@ -42,9 +52,9 @@ const Input = () => {
 				dismiss: {
 					duration: 4000,
 					onScreen: true,
-				}
+				},
 			});
-    }
+		}
 	}
 
 	return (
@@ -57,7 +67,7 @@ const Input = () => {
 				className={styles.input}
 				value={value}
 				onChange={(e) => handleInputChange(e)}
-        data-type={fromType}
+				data-type={fromType}
 			/>
 			<label className={styles.userLabel}>{fromType}</label>
 		</div>
