@@ -18,19 +18,14 @@ import BinaryToHex from "../components/formulas/binary-hex";
 import HexToBinary from "../components/formulas/hex-binary";
 
 const Formula = () => {
-  const fromType = useRecoilValue(fromTypeState);
-  const toType = useRecoilValue(toTypeState);
+	const fromType = useRecoilValue(fromTypeState);
+	const toType = useRecoilValue(toTypeState);
 
-  return (
+	return (
 		<article>
 			<h1 style={{ marginTop: "var(--margin-spacing-1)" }}>Formula</h1>
 
 			<section className="formula">
-				{fromType === Types.Decimal && toType === Types.Binary ? (
-					<DecimalToBinary />
-				) : (
-					""
-				)}
 				{fromType === Types.Binary && toType === Types.Decimal ? (
 					<BinaryToDecimal />
 				) : (
@@ -41,8 +36,14 @@ const Formula = () => {
 				) : (
 					""
 				)}
-				{fromType === Types.Octal && toType === Types.Decimal ? (
-					<OctalToDecimal />
+				{fromType === Types.Binary && toType === Types.Hexadecimal ? (
+					<BinaryToHex />
+				) : (
+					""
+				)}
+
+				{fromType === Types.Decimal && toType === Types.Binary ? (
+					<DecimalToBinary />
 				) : (
 					""
 				)}
@@ -56,8 +57,28 @@ const Formula = () => {
 				) : (
 					""
 				)}
+
+				{fromType === Types.Octal && toType === Types.Decimal ? (
+					<OctalToDecimal />
+				) : (
+					""
+				)}
 				{fromType === Types.Octal && toType === Types.Binary ? (
 					<OctalToBinary />
+				) : (
+					""
+				)}
+				{fromType === Types.Octal && toType === Types.Hexadecimal ? (
+					<>
+						<OctalToBinary />
+						<BinaryToHex />
+					</>
+				) : (
+					""
+				)}
+
+				{fromType === Types.Hexadecimal && toType === Types.Binary ? (
+					<HexToBinary />
 				) : (
 					""
 				)}
@@ -66,19 +87,17 @@ const Formula = () => {
 				) : (
 					""
 				)}
-				{fromType === Types.Binary && toType === Types.Hexadecimal ? (
-					<BinaryToHex />
-				) : (
-					""
-				)}
-				{fromType === Types.Hexadecimal && toType === Types.Binary ? (
-					<HexToBinary />
+				{fromType === Types.Hexadecimal && toType === Types.Octal ? (
+					<>
+						<HexToBinary />
+						<BinaryToOctal />
+					</>
 				) : (
 					""
 				)}
 			</section>
 		</article>
 	);
-}
+};
 
-export default Formula
+export default Formula;
