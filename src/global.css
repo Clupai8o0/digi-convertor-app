@@ -17,12 +17,12 @@ div.dark, div.light {
 h1 {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   margin-bottom: var(--margin-spacing-1);
-  font-size: 32px;
+  font-size: var(--h1);
   font-weight: bold;
 }
 
 h2, h2 span {
-  font-size: 20px;
+  font-size: var(--h2);
   font-weight: bold;
 }
 

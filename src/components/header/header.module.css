@@ -4,7 +4,19 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: var(--h1);
   font-weight: 700;
   font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+/* Tablet Portrait */
+@media all and (min-width: 600px) and (max-width: 968px) {
+  .header {
+    height: 80px;
+  }
+}
+@media all and (min-width: 480px) and (max-width: 600px) {
+  .header {
+    height: 100px;
+  }
 }
