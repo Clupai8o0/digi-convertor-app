@@ -1,10 +1,11 @@
 // State Management
 import { useRecoilValue } from "recoil";
 import { fromTypeState, toTypeState } from "../atoms/typesAtom";
-import BinaryToDecimal from "../components/formulas/binary-decimal";
 
 // Formula Components
 import DecimalToBinary from "../components/formulas/decimal-to-binary";
+import BinaryToDecimal from "../components/formulas/binary-decimal";
+import BinaryToOctal from "../components/formulas/binary-octal";
 
 // Types
 import { Types } from "../lib/types";
@@ -25,6 +26,11 @@ const Formula = () => {
 				)}
 				{fromType === Types.Binary && toType === Types.Decimal ? (
 					<BinaryToDecimal />
+				) : (
+					""
+				)}
+				{fromType === Types.Binary && toType === Types.Octal ? (
+					<BinaryToOctal />
 				) : (
 					""
 				)}

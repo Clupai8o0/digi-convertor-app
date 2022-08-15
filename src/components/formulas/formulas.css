@@ -22,6 +22,10 @@ section.formula svg line {
 section.formula svg path {
 	fill: var(--color);
 }
+section.formula svg path.stroke {
+	stroke: var(--color);
+	fill: none;
+}
 section.formula svg rect {
 	stroke: var(--color);
 }
