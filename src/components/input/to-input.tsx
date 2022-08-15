@@ -1,7 +1,7 @@
 // State Management
-import { useRecoilValue } from 'recoil'
-import { toInputState } from '../../atoms/inputAtom';
-import { toTypeState } from '../../atoms/typesAtom';
+import { useRecoilValue } from "recoil";
+import { toInputState } from "../../atoms/inputAtom";
+import { toTypeState } from "../../atoms/typesAtom";
 
 // Styles
 import styles from "./input.module.css";
@@ -9,14 +9,13 @@ import styles from "./input.module.css";
 // Notification
 import { Store } from "react-notifications-component";
 
-
 const ConvertedInput = () => {
-  const toInput = useRecoilValue(toInputState);
-  const toType = useRecoilValue(toTypeState);
+	const toInput = useRecoilValue(toInputState);
+	const toType = useRecoilValue(toTypeState);
 
-  function handleValueCopy() {
-    if (toInput.length === 0) {
-      Store.addNotification({
+	function handleValueCopy() {
+		if (toInput.length === 0) {
+			Store.addNotification({
 				title: "Warning",
 				message: "You haven't entered any value for conversion",
 				type: "warning",
@@ -29,12 +28,12 @@ const ConvertedInput = () => {
 					onScreen: true,
 				},
 			});
-      return;
-    }
+			return;
+		}
 
-    navigator.clipboard.writeText(toInput);
-    Store.addNotification({
-			title: "Warning",
+		navigator.clipboard.writeText(toInput);
+		Store.addNotification({
+			title: "Copied!",
 			message: "Digits copied to clipboard",
 			type: "success",
 			insert: "top",
@@ -46,11 +45,13 @@ const ConvertedInput = () => {
 				onScreen: true,
 			},
 		});
-  }
+	}
 
 	return (
-  <div className={styles.converted} onClick={handleValueCopy}>
-			<p>{toInput.length === 0 ? toType : toInput.toUpperCase()}</p>
+		<div className={styles.converted} onClick={handleValueCopy}>
+			<p className={toInput.length !== 0 ? styles.hasValue : ""}>
+				{toInput.length === 0 ? toType : toInput.toUpperCase()}
+			</p>
 			<svg
 				width="24"
 				height="24"

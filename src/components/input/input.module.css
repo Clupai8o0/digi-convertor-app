@@ -103,10 +103,15 @@
 	font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
+.converted p.hasValue {
+	font-family: Poppins, Arial, Helvetica, sans-serif;
+	color: black;
+}
+
 .converted svg path {
 	fill: var(--input-placeholder-color);
 	transition: 0.2s all;
-	strokeWidth: 1;
+	stroke-width: 1;
 }
 
 .converted p.has-value {
