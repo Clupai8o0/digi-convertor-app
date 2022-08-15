@@ -6,7 +6,8 @@ section.formula p {
 	margin-bottom: var(--margin-spacing-2);
 }
 
-section.formula p sub, section.formula p sup {
+section.formula p sub,
+section.formula p sup {
 	font-size: 10px;
 }
 
@@ -29,3 +30,4 @@ section.formula svg path.stroke {
 section.formula svg rect {
 	stroke: var(--color);
 }
+

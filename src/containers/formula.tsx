@@ -12,6 +12,7 @@ import { Types } from "../lib/types";
 import OctalToDecimal from "../components/formulas/octal-decimal";
 import DecimalToHex from "../components/formulas/decimal-hex";
 import DecimalToOctal from "../components/formulas/decimal-octal";
+import OctalToBinary from "../components/formulas/octal-binary";
 
 const Formula = () => {
   const fromType = useRecoilValue(fromTypeState);
@@ -49,6 +50,11 @@ const Formula = () => {
 				)}
 				{fromType === Types.Decimal && toType === Types.Octal ? (
 					<DecimalToOctal />
+				) : (
+					""
+				)}
+				{fromType === Types.Octal && toType === Types.Binary ? (
+					<OctalToBinary />
 				) : (
 					""
 				)}
