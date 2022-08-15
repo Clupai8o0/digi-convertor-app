@@ -106,7 +106,7 @@
 .converted svg path {
 	fill: var(--input-placeholder-color);
 	transition: 0.2s all;
-	stroke-width: 1;
+	strokeWidth: 1;
 }
 
 .converted p.has-value {

@@ -69,8 +69,8 @@ const DecimalToHex = () => {
 					x2="44"
 					y2="129"
 					stroke="black"
-					stroke-width="2"
-					stroke-linecap="round"
+					strokeWidth="2"
+					strokeLinecap="round"
 				/>
 				<line
 					x1="1"
@@ -78,8 +78,8 @@ const DecimalToHex = () => {
 					x2="178"
 					y2="31"
 					stroke="black"
-					stroke-width="2"
-					stroke-linecap="round"
+					strokeWidth="2"
+					strokeLinecap="round"
 				/>
 				<line
 					x1="1"
@@ -87,8 +87,8 @@ const DecimalToHex = () => {
 					x2="178"
 					y2="64"
 					stroke="black"
-					stroke-width="2"
-					stroke-linecap="round"
+					strokeWidth="2"
+					strokeLinecap="round"
 				/>
 				<line
 					x1="1"
@@ -96,8 +96,8 @@ const DecimalToHex = () => {
 					x2="178"
 					y2="97"
 					stroke="black"
-					stroke-width="2"
-					stroke-linecap="round"
+					strokeWidth="2"
+					strokeLinecap="round"
 				/>
 				<path
 					d="M268 130C268 130.552 268.448 131 269 131C269.552 131 270 130.552 270 130L268 130ZM269 35L263.227 45L274.774 45L269 35ZM270 130L270 44L268 44L268 130L270 130Z"

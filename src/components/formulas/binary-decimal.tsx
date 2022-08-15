@@ -46,10 +46,10 @@ const BinaryToDecimal = () => {
 					d="M212.324 31.044V33H202.904V31.044H206.504V20.22C206.504 19.836 206.516 19.444 206.54 19.044L203.768 21.384C203.648 21.48 203.524 21.544 203.396 21.576C203.276 21.6 203.16 21.6 203.048 21.576C202.944 21.552 202.848 21.516 202.76 21.468C202.68 21.412 202.616 21.352 202.568 21.288L201.764 20.16L206.972 15.684H209.072V31.044H212.324Z"
 					fill="black"
 				/>
-				<line x1="47" x2="47" y2="48" stroke="black" stroke-width="2" />
-				<line x1="93" x2="93" y2="48" stroke="black" stroke-width="2" />
-				<line x1="139" x2="139" y2="48" stroke="black" stroke-width="2" />
-				<line x1="185" x2="185" y2="48" stroke="black" stroke-width="2" />
+				<line x1="47" x2="47" y2="48" stroke="black" strokeWidth="2" />
+				<line x1="93" x2="93" y2="48" stroke="black" strokeWidth="2" />
+				<line x1="139" x2="139" y2="48" stroke="black" strokeWidth="2" />
+				<line x1="185" x2="185" y2="48" stroke="black" strokeWidth="2" />
 				<rect
 					x="1"
 					y="1"
@@ -57,7 +57,7 @@ const BinaryToDecimal = () => {
 					height="46"
 					rx="3"
 					stroke="black"
-					stroke-width="2"
+					strokeWidth="2"
 				/>
 				<rect
 					x="1"
@@ -66,8 +66,8 @@ const BinaryToDecimal = () => {
 					height="46"
 					rx="3"
 					stroke="black"
-					stroke-opacity="0.2"
-					stroke-width="2"
+					strokeOpacity="0.2"
+					strokeWidth="2"
 				/>
 			</svg>
 			<svg

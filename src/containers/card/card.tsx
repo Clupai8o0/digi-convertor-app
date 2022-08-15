@@ -51,6 +51,14 @@ function Card() {
 		}
 	}
 
+	async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault();
+
+		const resp = await fetch(`${import.meta.env.VITE_API}convert/${fromType}/${toType}/${fromInput}`);
+		const data = await resp.json()
+		setToInput(data.value);
+	}
+
 	return (
 		<div className={styles.card}>
 			{/* Card Header */}
@@ -70,7 +78,7 @@ function Card() {
 			</section>
 
 			{/* Form for digit to be converted input */}
-			<form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+			<form className={styles.form} onSubmit={(e) => handleFormSubmit(e)}>
 				<Input />
 
 				<svg
