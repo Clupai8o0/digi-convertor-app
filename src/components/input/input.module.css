@@ -117,3 +117,9 @@
 .converted p.has-value {
 	color: var(--color);
 }
+
+@media only screen and (min-width: 968px) {
+	.userLabel {
+		transform: translateY(1rem);
+	}
+}

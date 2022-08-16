@@ -71,12 +71,12 @@
 	margin-bottom: 24px;
 }
 
-@media all and (min-width: 480px) and (max-width: 768px) {
+@media only screen and (min-width: 480px) {
 	.header img {
 		width: 40px;
 	}
 }
-@media all and (min-width: 600px) and (max-width: 968px) {
+@media only screen and (min-width: 600px) {
 	.typesSelector {
 		flex-direction: row;
 		justify-content: space-between;
@@ -84,5 +84,12 @@
 	.typesMargin {
 		margin-left: 36px;
 		margin-right: 36px;
+	}
+}
+
+@media (min-width: 968px) {
+	.typesMargin {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }

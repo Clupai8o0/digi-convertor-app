@@ -31,3 +31,16 @@ section.formula svg rect {
 	stroke: var(--color);
 }
 
+@media only screen and (min-width: 500px) {
+	section.formula svg {
+		padding: var(--margin-border) calc(var(--margin-border) * 2);
+	}
+}
+@media all and (min-width: 968px) {
+	section.formula svg {
+		padding: var(--margin-border) calc(var(--margin-border) * 1.2);
+	}
+	section.formula svg.table {
+		padding: 0;
+	}
+}

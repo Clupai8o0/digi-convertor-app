@@ -10,6 +10,7 @@
 div.dark, div.light {
   background: var(--background);
   padding: var(--margin-border);
+  min-height: 100vh;
 
   transition: all 0.8s cubic-bezier(0.65,0.05,0.36,1);
 }
@@ -53,4 +54,8 @@ h2, h2 span {
   transition: opacity .25s;
   -webkit-animation: 0;
   animation: 0;
+}
+
+article h1 {
+  margin-top: var(--margin-spacing-1);
 }

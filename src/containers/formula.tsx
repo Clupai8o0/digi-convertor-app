@@ -23,7 +23,7 @@ const Formula = () => {
 
 	return (
 		<article>
-			<h1 style={{ marginTop: "var(--margin-spacing-1)" }}>Formula</h1>
+			<h1>Formula</h1>
 
 			<section className="formula">
 				{fromType === Types.Binary && toType === Types.Decimal ? (

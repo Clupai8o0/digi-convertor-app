@@ -1,13 +1,5 @@
-/* TODO: need to finish */
-/* Desktop */
-@media all and (min-width: 1280px) {
-}
-/* Table Landscape */
-@media all and (min-width: 768px) and (max-width: 1280px) {
-}
-
 /* Tablet Portrait */
-@media all and (min-width: 480px) and (max-width: 968px) {
+@media only screen and (min-width: 480px) {
 	:root {
 		/* Spacing */
 		--margin-border: 48px;
@@ -20,7 +12,42 @@
 		/* Card Spacing */
 		--card-padding: 36px;
 
-    /* Fonts */
-    --h2: 24px;
+		/* Fonts */
+		--h2: 24px;
+	}
+}
+/* Table Landscape */
+@media only screen and (min-width: 968px) {
+	div.light,
+	div.dark {
+		display: flex;
+	}
+
+	main {
+		flex: 1;
+		margin-right: calc(var(--margin-border) / 2);
+		overflow-y: auto;
+	}
+	article {
+		flex: 1;
+		margin-left: calc(var(--margin-border) / 2);
+		overflow-y: auto;
+	}
+	article h1 {
+		margin-top: 0;
+	}
+
+	:root {
+		--default: 20px;
+		--margin-border: 36px;
+	}
+}
+
+/* Desktop */
+@media all and (min-width: 1280px) {
+	:root {
+		--h1: 40px;
+		--h2: 28px;
+		--margin-border: 56px;
 	}
 }
