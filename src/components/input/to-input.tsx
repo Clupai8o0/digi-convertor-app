@@ -50,7 +50,7 @@ const ConvertedInput = () => {
 	return (
 		<div className={styles.converted} onClick={handleValueCopy}>
 			<p className={toInput.length !== 0 ? styles.hasValue : ""}>
-				{toInput.length === 0 ? toType : toInput.toUpperCase()}
+				{toInput.length === 0 ? toType : String(toInput).toUpperCase()}
 			</p>
 			<svg
 				width="24"
