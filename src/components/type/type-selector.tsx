@@ -10,7 +10,7 @@ import { getTypeBase, Types } from "../../lib/types";
 import Option from "./type-selector-option";
 
 // Styles
-import style from "./type.module.css";
+import styles from "./type.module.css";
 import { gsap } from "gsap";
 
 const TypeSelector = ({ from }: { from?: Boolean }) => {
@@ -25,7 +25,7 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 
 	// Animation
 	useEffect(() => {
-		let timeout: number | undefined = undefined;
+		let timeout: NodeJS.Timeout | undefined = undefined;
 
 		if (dropdownRef && dropdownArrowRef) {
 			if (isDropdownOpen) {
@@ -82,9 +82,9 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 	return (
 		<>
 			{/* Type Selector for Desktop & Tablets */}
-			<div className={style.dropdown} onClick={handleDropdownClick}>
+			<div className={styles.dropdown} onClick={handleDropdownClick}>
 				{/* Selected of the dropdown */}
-				<div className={style.dropdownSelected} data-type={type}>
+				<div className={styles.dropdownSelected} data-type={type}>
 					<img src={`${getTypeBase(type)}.svg`} alt="Base value" />
 					<span>{type}</span>
 					<img
@@ -96,7 +96,7 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 
 				{/* Options of the dropdown */}
 				<div
-					className={style.dropdownContent}
+					className={styles.dropdownContent}
 					ref={dropdownRef}
 					data-type={type}
 				>
@@ -132,9 +132,9 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 			</div>
 
 			{/* Type Selector for Mobile  */}
-			<div style={{ width: "100%" }}>
+			<div className={styles.dropdownSelectWrapper}>
 				<select
-					className={style.dropdownSelect}
+					className={styles.dropdownSelect}
 					data-type={type}
 					onChange={handleDropdownChange}
 				>
@@ -142,10 +142,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						value="Binary"
 						className={
 							type === Types.Binary || typeToDisable === Types.Binary
-								? style.selected
+								? styles.selected
 								: ""
 						}
 						selected={type === Types.Binary}
+						disabled={Types.Binary === typeToDisable}
 					>
 						Binary
 					</option>
@@ -153,10 +154,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						value="Decimal"
 						className={
 							type === Types.Decimal || typeToDisable === Types.Decimal
-								? style.selected
+								? styles.selected
 								: ""
 						}
 						selected={type === Types.Decimal}
+						disabled={Types.Decimal === typeToDisable}
 					>
 						Decimal
 					</option>
@@ -164,10 +166,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						value="Octal"
 						className={
 							type === Types.Octal || typeToDisable === Types.Octal
-								? style.selected
+								? styles.selected
 								: ""
 						}
 						selected={type === Types.Octal}
+						disabled={Types.Octal === typeToDisable}
 					>
 						Octal
 					</option>
@@ -175,10 +178,11 @@ const TypeSelector = ({ from }: { from?: Boolean }) => {
 						value="Hexadecimal"
 						className={
 							type === Types.Hexadecimal || typeToDisable === Types.Hexadecimal
-								? style.selected
+								? styles.selected
 								: ""
 						}
 						selected={type === Types.Hexadecimal}
+						disabled={Types.Hexadecimal === typeToDisable}
 					>
 						Hexadecimal
 					</option>

@@ -72,7 +72,7 @@ function Card() {
 			{/* Types Selector */}
 			<section className={styles.typesSelector}>
 				<TypeSelector from />
-				<div style={{ marginBottom: "24px" }} />
+				<div className={styles.typesMargin} />
 				<TypeReverseButton />
 				<TypeSelector />
 			</section>

@@ -7,7 +7,7 @@
 }
 
 /* Tablet Portrait */
-@media all and (min-width: 480px) and (max-width: 768px) {
+@media all and (min-width: 480px) and (max-width: 968px) {
 	:root {
 		/* Spacing */
 		--margin-border: 48px;
@@ -15,7 +15,7 @@
 		/* --margin-spacing-1: calc(var(--margin-border) / 2 + 16px); */
 		--margin-spacing-2: calc(var(--margin-border) / 2 + 8px);
 		--margin-spacing-3: calc(var(--margin-border) / 2);
-		--margin-card: 24px;
+		--margin-card: 48px;
 
 		/* Card Spacing */
 		--card-padding: 36px;

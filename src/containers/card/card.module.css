@@ -34,7 +34,7 @@
 	align-items: center;
 
 	position: relative;
-	margin-bottom: 24px;
+	margin-bottom: var(--margin-card);
 	width: 100%;
 }
 
@@ -65,4 +65,24 @@
 }
 .hexadecimalPath {
 	stop-color: var(--hexadecimal);
+}
+
+.typesMargin {
+	margin-bottom: 24px;
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+	.header img {
+		width: 40px;
+	}
+}
+@media all and (min-width: 600px) and (max-width: 968px) {
+	.typesSelector {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.typesMargin {
+		margin-left: 36px;
+		margin-right: 36px;
+	}
 }

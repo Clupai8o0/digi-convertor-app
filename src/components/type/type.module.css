@@ -141,6 +141,10 @@
 	display: none !important;
 }
 
+.dropdownSelectWrapper {
+	width: 100%;
+}
+
 .dropdownSelect {
 	width: 100%;
 	border: none;
@@ -155,10 +159,8 @@
 
 	appearance: none;
 	padding: 12px 24px;
+	
 	text-align: center;
-
-	background-position: 16px center, calc(100% - 16px) center;
-	background-repeat: no-repeat, no-repeat;
 }
 
 .dropdownSelect[data-type="Binary"] {
@@ -216,4 +218,8 @@
 }
 .hexadecimal {
 	fill: var(--hexadecimal);
+}
+
+@media all and (min-width: 600px) and (max-width: 968px) {
+
 }
