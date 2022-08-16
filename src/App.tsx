@@ -12,9 +12,12 @@ import { Theme } from "./lib/types";
 // Notifications
 import { ReactNotifications } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import { useEffect } from "react";
 
 function App() {
 	const theme = useRecoilValue(themeState);
+
+	
 
 	return (
 		<div className={theme === Theme.Light ? "light" : "dark"}>

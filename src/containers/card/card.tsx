@@ -9,7 +9,7 @@ import TypeReverseButton from "../../components/type/type-reverse-btn";
 import TypeSelector from "../../components/type/type-selector";
 
 // State Management
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { fromInputState, toInputState } from "../../atoms/inputAtom";
 import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 
@@ -20,9 +20,17 @@ import ConvertedInput from "../../components/input/to-input";
 
 function Card() {
 	const [fromInput, setFromInput] = useRecoilState(fromInputState);
-	const [toInput, setToInput] = useRecoilState(toInputState);
+	const setToInput = useSetRecoilState(toInputState);
 	const fromType = useRecoilValue(fromTypeState);
 	const toType = useRecoilValue(toTypeState);
+
+	async function convert() {
+		const resp = await fetch(
+			`${import.meta.env.VITE_API}convert/${fromType}/${toType}/${fromInput}`
+		);
+		const data = await resp.json();
+		setToInput(data.value);
+	}
 
 	// Clearing the input value, whenever from type state is changed
 	useEffect(() => {
@@ -32,6 +40,7 @@ function Card() {
 	// Clearing converted input, whenever to type state is changed
 	useEffect(() => {
 		setToInput("");
+		convert().catch(console.error);
 	}, [toType]);
 
 	function getArrowGradient(from?: Boolean) {
@@ -49,14 +58,6 @@ function Card() {
 		} else {
 			return styles.hexadecimalPath;
 		}
-	}
-
-	async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
-		e.preventDefault();
-
-		const resp = await fetch(`${import.meta.env.VITE_API}convert/${fromType}/${toType}/${fromInput}`);
-		const data = await resp.json()
-		setToInput(data.value);
 	}
 
 	return (
@@ -78,7 +79,13 @@ function Card() {
 			</section>
 
 			{/* Form for digit to be converted input */}
-			<form className={styles.form} onSubmit={(e) => handleFormSubmit(e)}>
+			<form
+				className={styles.form}
+				onSubmit={async (e) => {
+					e.preventDefault();
+					await convert();
+				}}
+			>
 				<Input />
 
 				<svg
