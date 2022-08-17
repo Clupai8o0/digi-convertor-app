@@ -7,6 +7,8 @@ import TypeText from "../../components/type/type-text";
 import ThemeChanger from "../../components/theme-changer";
 import TypeReverseButton from "../../components/type/type-reverse-btn";
 import TypeSelector from "../../components/type/type-selector";
+import ConvertedInput from "../../components/input/to-input";
+import Input from "../../components/input/from-input";
 
 // State Management
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
@@ -15,8 +17,8 @@ import { fromTypeState, toTypeState } from "../../atoms/typesAtom";
 
 // Css
 import styles from "./card.module.css";
-import Input from "../../components/input/from-input";
-import ConvertedInput from "../../components/input/to-input";
+// Animation
+import { motion } from "framer-motion";
 
 function Card() {
 	const [fromInput, setFromInput] = useRecoilState(fromInputState);
@@ -61,7 +63,12 @@ function Card() {
 	}
 
 	return (
-		<div className={styles.card}>
+		<motion.div
+			className={styles.card}
+			initial={{ y: 30, opacity: 0, scale: 0.9 }}
+			animate={{ y: 0, opacity: 1, scale: 1 }}
+			transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+		>
 			{/* Card Header */}
 			<header className={styles.header}>
 				<h2>
@@ -116,7 +123,7 @@ function Card() {
 			</form>
 
 			<ConvertedInput />
-		</div>
+		</motion.div>
 	);
 }
 

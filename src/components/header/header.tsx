@@ -1,8 +1,12 @@
 // Imports
 import { useRef, useEffect } from "react";
-import Typed from "typed.js";
 
+// Css
 import styles from "./header.module.css";
+
+// Animation
+import Typed from "typed.js";
+import { motion } from "framer-motion";
 
 const Header = () => {
 	const el = useRef(null);
@@ -22,23 +26,32 @@ const Header = () => {
 			backDelay: 5000,
 			autoInsertCss: true,
 			shuffle: true,
-			loop: true
+			loop: true,
 		};
 
 		// @ts-ignore
-		typed.current = new Typed(el.current || '', options);
+		typed.current = new Typed(el.current || "", options);
 
 		return () => {
 			// @ts-ignore
 			typed.current.destroy();
-		}
+		};
 	}, []);
 
 	return (
-		<header className={styles.header}>
+		<motion.header
+			initial={{ y: 25, opacity: 0 }}
+			animate={{ y: 0, opacity: 1 }}
+			transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+			className={styles.header}
+		>
 			{/* Random header */}
-			<span className={styles.title} ref={el} style={{ height: "150px"}}></span>
-		</header>
+			<span
+				className={styles.title}
+				ref={el}
+				style={{ height: "150px" }}
+			></span>
+		</motion.header>
 	);
 };
 
