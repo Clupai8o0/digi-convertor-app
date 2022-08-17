@@ -70,28 +70,41 @@ function Card() {
 			transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
 		>
 			{/* Card Header */}
-			<header className={styles.header}>
+			<motion.header
+				className={styles.header}
+				initial={{ y: 40, opacity: 0, scale: 0.9 }}
+				animate={{ y: 0, opacity: 1, scale: 1 }}
+				transition={{ delay: 2, duration: 0.8, ease: "easeOut" }}
+			>
 				<h2>
 					Convert <TypeText from /> to <TypeText />
 				</h2>
 				<ThemeChanger />
-			</header>
+			</motion.header>
 
 			{/* Types Selector */}
-			<section className={styles.typesSelector}>
+			<motion.section
+				className={styles.typesSelector}
+				initial={{ y: 40, opacity: 0, scale: 0.9 }}
+				animate={{ y: 0, opacity: 1, scale: 1 }}
+				transition={{ delay: 2.2, duration: 0.8, ease: "easeOut" }}
+			>
 				<TypeSelector from />
 				<div className={styles.typesMargin} />
 				<TypeReverseButton />
 				<TypeSelector />
-			</section>
+			</motion.section>
 
 			{/* Form for digit to be converted input */}
-			<form
+			<motion.form
 				className={styles.form}
 				onSubmit={async (e) => {
 					e.preventDefault();
 					await convert();
 				}}
+				initial={{ y: 40, opacity: 0, scale: 0.9 }}
+				animate={{ y: 0, opacity: 1, scale: 1 }}
+				transition={{ delay: 2.4, duration: 0.8, ease: "easeOut" }}
 			>
 				<Input />
 
@@ -120,9 +133,15 @@ function Card() {
 						</linearGradient>
 					</defs>
 				</svg>
-			</form>
+			</motion.form>
 
-			<ConvertedInput />
+			<motion.div
+				initial={{ y: 40, opacity: 0, scale: 0.9 }}
+				animate={{ y: 0, opacity: 1, scale: 1 }}
+				transition={{ delay: 2.6, duration: 0.8, ease: "easeOut" }}
+			>
+				<ConvertedInput />
+			</motion.div>
 		</motion.div>
 	);
 }
