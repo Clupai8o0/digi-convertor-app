@@ -10,11 +10,8 @@ A mini-project convertor, that takes a digital value as input like decimal/binar
 
 # Todo
 
-- [] Add preferences to remove motion
-- [] Complete all solutions
-- [] Add dark mode for the solution images
-<!-- - [] Replace the src locations in html and js files -->
-- [] Add height for typing animation in different resolutions
+- [] Add intro animation
+- [] Storing dark theme
 
 # Design Decisions to Consider
 

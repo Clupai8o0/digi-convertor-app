@@ -18,7 +18,7 @@ const ThemeChanger = () => {
 	function handleThemeChange() {
 		if (theme === Theme.Light) {
 			setTheme(Theme.Dark);
-			localStorage.setItem("theme", Theme.Light);
+			localStorage.setItem("theme", Theme.Dark);
 		} else {
 			setTheme(Theme.Light);
 			localStorage.setItem("theme", Theme.Light);
