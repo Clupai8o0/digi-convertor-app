@@ -40,8 +40,8 @@ const Header = () => {
 
 	return (
 		<motion.header
-			initial={{ y: 25, opacity: 0 }}
-			animate={{ y: 0, opacity: 1 }}
+			initial={{ y: 25, opacity: 0, scale: 0.9 }}
+			animate={{ y: 0, opacity: 1, scale: 1 }}
 			transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
 			className={styles.header}
 		>

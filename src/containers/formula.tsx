@@ -20,6 +20,9 @@ import HexToBinary from "../components/formulas/hex-binary";
 // Types
 import { Types } from "../lib/types";
 
+// Animation
+import { motion } from "framer-motion";
+
 const Formula = () => {
 	const fromType = useRecoilValue(fromTypeState);
 	const toType = useRecoilValue(toTypeState);
@@ -63,7 +66,11 @@ const Formula = () => {
 
 	return (
 		<article>
-			<h1>Formula</h1>
+			<motion.h1
+				initial={{ y: 40, opacity: 0, scale: 0.9 }}
+				animate={{ y: 0, opacity: 1, scale: 1 }}
+				transition={{ delay: 2.8, duration: 0.8, ease: "easeOut" }}
+			>Formula</motion.h1>
 
 			<section className="formula">
 				{getFormula()}
