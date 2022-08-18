@@ -67,7 +67,7 @@ function Card() {
 			className={styles.card}
 			initial={{ y: 30, opacity: 0, scale: 0.9 }}
 			animate={{ y: 0, opacity: 1, scale: 1 }}
-			transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+			transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
 		>
 			{/* Card Header */}
 			<motion.header
@@ -87,7 +87,7 @@ function Card() {
 				className={styles.typesSelector}
 				initial={{ y: 40, opacity: 0, scale: 0.9 }}
 				animate={{ y: 0, opacity: 1, scale: 1 }}
-				transition={{ delay: 2.4, duration: 0.8, ease: "easeOut" }}
+				transition={{ delay: 2.2, duration: 0.8, ease: "easeOut" }}
 			>
 				<TypeSelector from />
 				<div className={styles.typesMargin} />
@@ -104,7 +104,7 @@ function Card() {
 				}}
 				initial={{ y: 40, opacity: 0, scale: 0.9 }}
 				animate={{ y: 0, opacity: 1, scale: 1 }}
-				transition={{ delay: 2.8, duration: 0.8, ease: "easeOut" }}
+				transition={{ delay: 2.4, duration: 0.8, ease: "easeOut" }}
 			>
 				<Input />
 
@@ -138,7 +138,7 @@ function Card() {
 			<motion.div
 				initial={{ y: 40, opacity: 0, scale: 0.9 }}
 				animate={{ y: 0, opacity: 1, scale: 1 }}
-				transition={{ delay: 3.2, duration: 0.8, ease: "easeOut" }}
+				transition={{ delay: 2.6, duration: 0.8, ease: "easeOut" }}
 			>
 				<ConvertedInput />
 			</motion.div>
