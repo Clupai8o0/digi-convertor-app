@@ -4,32 +4,20 @@ import { useState, useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
 import { fromTypeState, toTypeState } from "../atoms/typesAtom";
 
-import { gsap } from "gsap";
-
 enum Change {
 	Enter = "enter",
 	Exit = "exit",
 }
 
 const formulaWrapperAnimations = {
-	fadeOut: { y: 30, opacity: 0, scale: 0.95, delay: 0 },
-	fadeIn: { y: 0, opacity: 1, scale: 1, delay: 0 },
+	fadeOut: { y: 30, opacity: 0, scale: 0.95 },
+	fadeIn: { y: 0, opacity: 1, scale: 1 },
 };
 
 function FormulaWrapper({ children }: { children: JSX.Element }) {
 	const [change, setChange] = useState(Change.Enter);
 	const fromType = useRecoilValue(fromTypeState);
 	const toType = useRecoilValue(toTypeState);
-
-	const wrapperContainer = useRef(null);
-
-	useEffect(() => {
-		gsap.fromTo(
-			wrapperContainer.current,
-			{ y: 40, opacity: 0, scale: 0.95 },
-			{ y: 0, opacity: 1, scale: 1, duration: 0.8, delay: 3 }
-		);
-	}, []);
 
 	useEffect(() => {
 		let timeout: NodeJS.Timeout | undefined = undefined;
@@ -46,7 +34,11 @@ function FormulaWrapper({ children }: { children: JSX.Element }) {
 	}, [fromType, toType]);
 
 	return (
-		<div ref={wrapperContainer}>
+		<motion.div
+		initial={formulaWrapperAnimations.fadeOut}
+		animate={formulaWrapperAnimations.fadeIn}
+		transition={{ delay: 3, duration: 0.8, ease: "easeOut"}}
+		>
 			<motion.div
 				variants={formulaWrapperAnimations}
 				initial={change === Change.Enter ? "fadeOut" : "fadeIn"}
