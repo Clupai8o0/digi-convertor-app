@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { fromTypeState, toTypeState } from "../atoms/typesAtom";
 
@@ -47,7 +47,7 @@ function FormulaWrapper({ children }: { children: JSX.Element }) {
 			>
 				{children}
 			</motion.div>
-		</div>
+		</motion.div>
 	);
 }
 
