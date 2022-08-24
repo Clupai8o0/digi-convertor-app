@@ -22,6 +22,7 @@ import { Types } from "../lib/types";
 
 // Animation
 import { motion } from "framer-motion";
+import FormulaWrapper from "./formula-wrapper";
 
 const Formula = () => {
 	const fromType = useRecoilValue(fromTypeState);
@@ -70,10 +71,12 @@ const Formula = () => {
 				initial={{ y: 40, opacity: 0, scale: 0.9 }}
 				animate={{ y: 0, opacity: 1, scale: 1 }}
 				transition={{ delay: 2.8, duration: 0.8, ease: "easeOut" }}
-			>Formula</motion.h1>
+			>
+				Formula
+			</motion.h1>
 
 			<section className="formula">
-				{getFormula()}
+				<FormulaWrapper>{getFormula()}</FormulaWrapper>
 			</section>
 		</article>
 	);

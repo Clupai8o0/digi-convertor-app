@@ -1,9 +1,9 @@
-import FormulaWrapper from "../../containers/formula-wrapper";
+
 import "./formulas.css";
 
 const HexToDecimal = () => {
 	return (
-		<FormulaWrapper>
+		
 			<>
 				<h2>Hexadecimal to Decimal Conversion</h2>
 				<p>
@@ -29,7 +29,7 @@ const HexToDecimal = () => {
 					/>
 				</svg>
 			</>
-		</FormulaWrapper>
+		
 	);
 };
 

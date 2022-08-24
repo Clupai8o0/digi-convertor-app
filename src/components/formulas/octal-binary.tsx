@@ -1,9 +1,9 @@
-import FormulaWrapper from "../../containers/formula-wrapper";
+
 import "./formulas.css";
 
 const OctalToBinary = () => {
 	return (
-		<FormulaWrapper>
+		
 			<>
 				<h2>Octal to Binary Conversion</h2>
 				<p>
@@ -369,7 +369,7 @@ const OctalToBinary = () => {
 				</svg>
 				<p>Hence, octal 472 is equivalent to binary 100111010</p>
 			</>
-		</FormulaWrapper>
+		
 	);
 };
 
